@@ -1,0 +1,17 @@
+/.idea
+/.vscode
+/vendor
+*.log
+.env
+public/backend/
+public/storage/
+app/admin/controller/cogen/*
+app/api/controller/cogen/*
+app/validate/cogen/*
+app/model/cogen/*
+app/service/cogen/*
+view/template/*
+public/template/*
+public/storage/images/*
+
+

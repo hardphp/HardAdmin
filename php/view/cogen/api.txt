@@ -1,0 +1,92 @@
+代码生成步骤：
+1、创建数据库：查看数据库具体规则
+2、添加代码生成规则：查看代码生成具体规则
+3、生成代码：生成前后端接口文件，后端页面文件，以及菜单权限，接口说明文档
+4、下载代码：后端接口代码已经部署，只需要将代码中vue 下的文件放到 后端页面工程src/views/cogen，然后把其中的接口放到src/api 目录下 即可
+
+
+接口公共参数说明：每个方法必传
+
+1、x-access-appid ：heaer 传参， 可以在后台应用管理中获取
+2、signature ：post/get 传参
+signature算法 = md5(sha1($str) . 密钥)，密钥 x-access-appid 对应，可以在后台应用管理中获取，$str 是参数数组先ksort排序，然后拼接成字符换
+
+3、x-access-token ：heaer 传参，需要登录接口传；
+
+
+
+文档时间：{%datetime%}
+
+一、前端接口文档说明
+
+//1、获取分页列表
+	地址: {%domain%}/api/{%tableName%}/index
+	方式: post；
+	参数: page : 页码；
+		  psize ： 页码大小；
+		  {%listseach%}
+
+//2、获取获取全部列表，可指定字段
+	地址: {%domain%}/api/{%tableName%}/getlists
+	方式: post；
+	参数: fields : 查询字段，不传系统默认；
+		  {%listseach%}
+
+//3、获取获取全部列表，以id=>name 形式返回
+	地址: {%domain%}/api/{%tableName%}/getListsIdName
+	方式: post；
+	参数: field : name字段，不传系统默认
+		  {%listseach%} 
+
+//4、获取详情
+	地址: {%domain%}/api/{%tableName%}/getinfo
+	方式: post；
+	参数: id； 
+
+//5、保存数据，id = 0 添加，id > 0 编辑
+	地址: {%domain%}/api/{%tableName%}/save
+	方式: post；
+	参数: id； 
+
+//6、删除数据
+	地址: {%domain%}/api/{%tableName%}/del
+	方式: post；
+	参数: id； 
+  
+  
+ 二、后端接口文档说明
+
+//1、获取分页列表
+	地址: {%domain%}/admin/{%tableName%}/index
+	方式: post；
+	参数: page : 页码；
+		  psize ： 页码大小；
+		  {%listseach%}
+
+//2、获取获取全部列表，可指定字段
+	地址: {%domain%}/admin/{%tableName%}/getlists
+	方式: post；
+	参数: fields : 查询字段，不传系统默认；
+		  {%listseach%}
+
+//3、获取获取全部列表，以id=>name 形式返回
+	地址: {%domain%}/admin/{%tableName%}/getListsIdName
+	方式: post；
+	参数: field : name字段，不传系统默认
+		  {%listseach%} 
+
+//4、获取详情
+	地址: {%domain%}/admin/{%tableName%}/getinfo
+	方式: post；
+	参数: id； 
+
+//5、保存数据，id = 0 添加，id > 0 编辑
+	地址: {%domain%}/admin/{%tableName%}/save
+	方式: post；
+	参数: id； 
+
+//6、删除数据
+	地址: {%domain%}/admin/{%tableName%}/del
+	方式: post；
+	参数: id； 
+   
